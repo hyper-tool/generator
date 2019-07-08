@@ -1,48 +1,40 @@
-# Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+# Originate: https://gist.github.com/benhuang1024/.gitignore
+# Author: ben<benhuang1024@gmail.com>
 
-# Email spool folder
-/app/spool/*
+# other
+vendor/
+.vagrant
 
-# Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-!var/sessions/.gitkeep
+# IDE
+.idea/
+.vscode
+nbproject/private/
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
 
-# Parameters
-/app/config/parameters.yml
-/app/config/parameters.ini
+# JavaScript
+node_modules/
+npm-debug.log
+yarn-error.log
 
-# Managed by Composer
-/app/bootstrap.php.cache
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
-/vendor/
+# Laravel  & Lumen specific
+public/storage
+public/hot
+storage/*.key
+.env.*.php
+.env.php
+.env
+Homestead.yaml
+Homestead.json
+Envoy.blade.php
 
-# Assets and user uploads
-/web/bundles/
-/web/uploads/
+
+# Rocketeer PHP task runner and deployment package。
+.rocketeer/
+
+# Laravel Box
+samples/
 
 # PHPUnit
-/app/phpunit.xml
-/phpunit.xml
-
-# Build data
-/build/
-
-# Composer PHAR
-/composer.phar
-
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
-
-# Embedded web-server pid file
-/.web-server-pid
+.phpunit.result.cache
