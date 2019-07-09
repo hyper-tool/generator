@@ -35,8 +35,7 @@ class main
     public function __construct()
     {
         $this->config = Config::load(__DIR__ . '/../config/app.php');
-        $this->config = Config::load(__DIR__ . '/../config/app.php');
-        $this->log = new Logger('name');
+        $this->log = new Logger('app');
         $this->log->pushHandler(new StreamHandler(__DIR__ . '/../logs/app.log', Logger::DEBUG));
     }
 
@@ -45,8 +44,8 @@ class main
      */
     public function run()
     {
-        $this->log->info('Hello');
-        $this->log->info(json_encode($this->config));
+        $this->log->info('Hello', ['world']);
+        $this->log->debug('config', (array)$this->config->all());
         return null;
     }
 }
