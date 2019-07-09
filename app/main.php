@@ -7,31 +7,46 @@
 
 namespace App;
 
-use stdClass;
 use Noodlehaus\Config;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
+/**
+ * Class main
+ *
+ * @package App
+ */
 class main
 {
-    protected $config = [];
+    /**
+     * @var Config
+     */
+    protected $config;
     /**
      * @var Logger|string
      */
-    protected $log = stdClass::class;
+    protected $log;
 
+    /**
+     * main constructor.
+     *
+     * @throws \Exception
+     */
     public function __construct()
     {
         $this->config = Config::load(__DIR__ . '/../config/app.php');
+        $this->config = Config::load(__DIR__ . '/../config/app.php');
+        $this->log = new Logger('name');
+        $this->log->pushHandler(new StreamHandler(__DIR__ . '/../logs/app.log', Logger::DEBUG));
     }
 
+    /**
+     * @return null
+     */
     public function run()
     {
-        $this->config = Config::load(__DIR__ . '/../config/app.php');
-        $log= new Logger('name');
-        $log->pushHandler(new StreamHandler(__DIR__ . '/../logs/app.log', Logger::DEBUG));
-        $log->warning('Foo');
-        $log->error('Bar');
+        $this->log->info('Hello');
+        $this->log->info(json_encode($this->config));
         return null;
     }
 }
