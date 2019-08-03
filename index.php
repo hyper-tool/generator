@@ -8,6 +8,6 @@
 
 require 'vendor/autoload.php';
 
-use App\main;
+use App\Main;
 
-(new main())->run();
+(new Main())->run();
