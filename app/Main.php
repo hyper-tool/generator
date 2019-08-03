@@ -16,7 +16,7 @@ use Monolog\Handler\StreamHandler;
  *
  * @package App
  */
-class main
+class Main
 {
     /**
      * @var Config
