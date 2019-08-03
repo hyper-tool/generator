@@ -2,9 +2,8 @@
     "name": "php-tool/generator",
     "type": "project",
     "description": "php-tool generator",
-    "keywords": [
-        "framework",
-        "laravel-plus"
+    "keywords": [        
+        "generator"
     ],
     "require": {
         "php": "^7.1.3",
