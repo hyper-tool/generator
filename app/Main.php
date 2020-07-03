@@ -7,6 +7,7 @@
 
 namespace App;
 
+use Dotenv\Dotenv;
 use Noodlehaus\Config;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -34,6 +35,7 @@ class Main
      */
     public function __construct()
     {
+        (Dotenv::createImmutable(__DIR__ . '/../'))->load();
         $this->config = Config::load(__DIR__ . '/../config/app.php');
         $this->log = new Logger('app');
         $this->log->pushHandler(new StreamHandler(__DIR__ . '/../logs/app.log', Logger::DEBUG));
@@ -44,6 +46,7 @@ class Main
      */
     public function run()
     {
+        echo $_ENV['APP_NAME'] . PHP_EOL;
         $this->log->info('Hello', ['world']);
         $this->log->debug('config', (array)$this->config->all());
         return null;
