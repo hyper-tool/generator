@@ -32,7 +32,7 @@ class Basic
      * Basic constructor.
      * @throws \Exception
      */
-    protected function __construct()
+    public function __construct()
     {
         (Dotenv::createImmutable(__DIR__ . '/../'))->load();
         $this->config = Config::load(__DIR__ . '/../config/app.php');
