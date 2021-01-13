@@ -34,7 +34,9 @@ class Basic
      */
     public function __construct()
     {
-        (Dotenv::createImmutable(__DIR__ . '/../'))->load();
+        date_default_timezone_set('Asia/Shanghai');
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+        $dotenv->load();
         $this->config = Config::load(__DIR__ . '/../config/app.php');
         $this->log = new Logger('app');
         $this->log->pushHandler(new StreamHandler(__DIR__ . '/../logs/app.log', Logger::DEBUG));
