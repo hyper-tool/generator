@@ -20,9 +20,14 @@ class Main extends Basic
      */
     public function run()
     {
-        echo $_ENV['APP_NAME'] . PHP_EOL;
-        $this->log->info('Hello', ['world']);
-        $this->log->debug('config', (array)$this->config->all());
-        return null;
+        try {
+            echo $_ENV['APP_NAME'] . PHP_EOL;
+            $this->log->info('Hello', ['world']);
+            $this->log->debug('config', (array)$this->config->all());
+            $response_return = null;
+        } catch (\Exception $exception) {
+            $response_return = $exception->getMessage();
+        }
+        return $response_return;
     }
 }
